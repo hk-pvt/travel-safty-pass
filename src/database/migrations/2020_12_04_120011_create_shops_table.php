@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateShopsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,25 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('shops', function (Blueprint $table) {
             $table->integerIncrements('id');
             $table->string('user_name');
             $table->string('password');
             $table->string('passwordh');
             $table->string('email');
-            $table->string('profile');
+            $table->unsignedInteger('category_id');
+            $table->string('shop_place');
+            $table->text('shop_opening_hours');
+            $table->string('shop_url');
+            $table->text('shop_detail');
+            $table->string('shop_list_logo');
+            $table->string('shop_inside_logo1');
+            $table->string('shop_inside_pr');
+            $table->string('shop_inside_1');
+            $table->string('shop_inside_2');
+            $table->string('shop_movie_id');
+            $table->tinyInteger('display_flag');
+            $table->tinyInteger('approval_flag');
             $table->tinyInteger('device_type');
             $table->string('device_token');
             $table->tinyInteger('push_ng_flag');
@@ -37,6 +49,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('shops');
     }
 }
