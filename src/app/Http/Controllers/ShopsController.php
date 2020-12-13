@@ -92,7 +92,7 @@ class ShopsController extends Controller
         } else {
             return response()->jsonp('jsonp_data', [
                 'message' => 'Store not found',
-            ], 404);
+            ], 400);
         }
     }
 
@@ -114,7 +114,7 @@ class ShopsController extends Controller
         } else {
             return response()->json([
                 'message' => 'Store not found',
-            ], 404);
+            ], 400);
         }
     }
 
